@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-zzl-bluetooth-status" version="1.0.0">
+    <name>BluetoothStatusPlugin</name>
+    <js-module name="BluetoothStatusPlugin" src="www/BluetoothStatusPlugin.js">
+        <clobbers target="cordova.plugins.BluetoothStatusPlugin"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BluetoothStatusPlugin">
+                <param name="android-package" value="com.zzl.intelligence.BluetoothStatusPlugin"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+        </config-file>
+        <source-file src="src/android/BluetoothStatusPlugin.java" target-dir="src/cordova-plugin-zzl-bluetooth-status/BluetoothStatusPlugin"/>
+    </platform>
+</plugin>
